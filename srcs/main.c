@@ -6,7 +6,7 @@
 /*   By: stetrel <stetrel@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:11:03 by stetrel           #+#    #+#             */
-/*   Updated: 2025/01/15 20:11:47 by stetrel          ###   ########.fr       */
+/*   Updated: 2025/01/15 21:12:41 by stetrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,11 @@ void	print_type(int type)
 	}
 }
 
-void	print_hashmap(t_hashmap *hashmap)
-{
-	size_t	i = 0;
-	while (i < hashmap->size)
-	{
-		t_object *obj = (t_object*)hashmap->entry[i].value;
-		print_type(obj->type);
-		printf("key = %s\n", hashmap->entry[i].key);
-		i++;
-	}
-}
-
-
-
 int	main(int argc, char **argv)
 {
 	t_hashmap	hashmap;
 
 	if (argc != 5)
 		return (1);
-	//faut creer les objets
+
 }
