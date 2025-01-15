@@ -6,7 +6,7 @@
 /*   By: stetrel <stetrel@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:11:29 by stetrel           #+#    #+#             */
-/*   Updated: 2025/01/15 19:53:31 by stetrel          ###   ########.fr       */
+/*   Updated: 2025/01/15 20:26:27 by stetrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ void	hashmap_insert(t_hashmap *hashmap, t_object *obj, int *error, char *key);
 void	*hashmap_get(t_hashmap *hashmap, char *key);
 void	hashmap_remove(t_hashmap *hashmap, char *key);
 
+
+//utils
+void	check_key_dup(t_hashmap *hashmap, char *key, int *error);
 
 #endif

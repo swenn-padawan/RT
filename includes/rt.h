@@ -6,7 +6,7 @@
 /*   By: stetrel <stetrel@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:00:56 by stetrel           #+#    #+#             */
-/*   Updated: 2025/01/15 16:32:23 by stetrel          ###   ########.fr       */
+/*   Updated: 2025/01/15 20:20:31 by stetrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,7 @@ typedef struct	s_object
 		t_material		material;
 		void			*spe_data;
 }	t_object;
+
+t_object	*rt_create_obj();
 
 #endif
