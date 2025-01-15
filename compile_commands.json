@@ -1,0 +1,38 @@
+[
+ {
+  "directory": "/nfs/homes/stetrel/42cursus/RT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./includes",
+   "-o",
+   ".build/srcs/main.o",
+   "-c",
+   "srcs/main.c",
+   ".build/srcs/main.o.log"
+  ],
+  "file": "srcs/main.c"
+ },
+ {
+  "directory": "/nfs/homes/stetrel/42cursus/RT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-g",
+   "-I",
+   "./includes",
+   "-o",
+   ".build/srcs/hashmap/hashmap_create.o",
+   "-c",
+   "srcs/hashmap/hashmap_create.c",
+   ".build/srcs/hashmap/hashmap_create.o.log"
+  ],
+  "file": "srcs/hashmap/hashmap_create.c"
+ }
+]
