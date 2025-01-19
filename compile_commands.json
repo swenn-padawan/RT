@@ -4,16 +4,14 @@
   "arguments": [
    "cc",
    "-Wall",
-   "-Werror",
    "-Wextra",
+   "-Werror",
    "-g",
-   "-I",
-   "./includes",
+   "-I./includes",
    "-o",
    ".build/srcs/main.o",
    "-c",
-   "srcs/main.c",
-   ".build/srcs/main.o.log"
+   "srcs/main.c"
   ],
   "file": "srcs/main.c"
  },
@@ -22,17 +20,63 @@
   "arguments": [
    "cc",
    "-Wall",
-   "-Werror",
    "-Wextra",
+   "-Werror",
    "-g",
-   "-I",
-   "./includes",
+   "-I./includes",
    "-o",
-   ".build/srcs/hashmap/hashmap_create.o",
+   ".build/srcs/hook/key_hook.o",
    "-c",
-   "srcs/hashmap/hashmap_create.c",
-   ".build/srcs/hashmap/hashmap_create.o.log"
+   "srcs/hook/key_hook.c"
   ],
-  "file": "srcs/hashmap/hashmap_create.c"
+  "file": "srcs/hook/key_hook.c"
+ },
+ {
+  "directory": "/nfs/homes/stetrel/42cursus/RT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-I./includes",
+   "-o",
+   ".build/srcs/hook/window_hook.o",
+   "-c",
+   "srcs/hook/window_hook.c"
+  ],
+  "file": "srcs/hook/window_hook.c"
+ },
+ {
+  "directory": "/nfs/homes/stetrel/42cursus/RT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-I./includes",
+   "-o",
+   ".build/srcs/parsing/parsing.o",
+   "-c",
+   "srcs/parsing/parsing.c"
+  ],
+  "file": "srcs/parsing/parsing.c"
+ },
+ {
+  "directory": "/nfs/homes/stetrel/42cursus/RT",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-I./includes",
+   "-o",
+   ".build/srcs/parsing/error.o",
+   "-c",
+   "srcs/parsing/error.c"
+  ],
+  "file": "srcs/parsing/error.c"
  }
 ]

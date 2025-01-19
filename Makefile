@@ -5,60 +5,66 @@
 #                                                     +:+ +:+         +:+      #
 #    By: stetrel <stetrel@42angouleme.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/15 13:32:58 by stetrel           #+#    #+#              #
-#    Updated: 2025/01/15 20:11:12 by stetrel          ###   ########.fr        #
+#    Created: 2025/01/17 18:41:07 by stetrel           #+#    #+#              #
+#    Updated: 2025/01/19 15:02:13 by stetrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-include pimp_makefile.mk
 
-NAME	:= RayTracer
+NAME = RT
 
-CC		:= cc
+CC 		:= cc
+
+FLAGS 	:= -Wall -Wextra -Werror -g
+
+BUILD	:=	.build
+
+LIBMLX_PATH = ./Lib/Macro
+
+LIBFT_PATH = ./Lib/Libft
+
+SRCS 	:= 	main.c \
+			hook/key_hook.c \
+			hook/window_hook.c \
+			parsing/parsing.c \
+			parsing/error.c \
 
 SRCS_DIR	:= srcs
 
-BUILD_DIR	:= .build
+SRCS		:= $(addprefix $(SRCS_DIR)/, $(SRCS))
 
-CFLAGS	:= -Wall -Werror -Wextra -g
+OBJS = $(addprefix $(BUILD)/, $(SRCS:%.c=%.o))
 
-IFLAGS	:=	-I ./includes
-
-SRCS	:= main.c \
-		   hashmap/hashmap_create.c \
-
-SRCS	:= $(addprefix $(SRCS_DIR)/, $(SRCS))
-
-OBJS		:= $(addprefix $(BUILD_DIR)/, $(SRCS:%.c=%.o))
-
-RM		:= rm -f
-
-DIR_UP	= mkdir -p $(@D)
+DIR_UP	=	mkdir -p $(@D)
 
 MAKEFLAGS	+= --no-print-directory
 
-###############################################################################
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $@
+$(NAME): $(LIBMLX_PATH)/libmlx.so  $(LIBFT_PATH)/libft.a $(OBJS)
+	@$(CC) $(FLAGS) $(OBJS) $(LIBFT_PATH)/libft.a $(LIBMLX_PATH)/libmlx.so -lSDL2 -lm -o $(NAME)
 
-$(BUILD_DIR)/%.o:%.c
+$(LIBMLX_PATH)/libmlx.so:
+	@make -C $(LIBMLX_PATH) -s -j
+	
+$(LIBFT_PATH)/libft.a:
+	@make -C $(LIBFT_PATH)
+
+$(BUILD)/%.o: %.c
 	@$(DIR_UP)
-	@$(call run_and_test, $(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<)
+	@$(CC) $(FLAGS) -I./includes -o $@ -c $<
 
 clean:
-	@$(RM) $(OBJS_DIR)
-	@$(RM) $(OBJS)
-	@echo "$(RED)objs removed$(RESET)"
+	@make fclean -C $(LIBFT_PATH) -s
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "$(RED)$(NAME) removed"
-	@$(RM) $(NAME)
+	@make fclean -C $(LIBMLX_PATH) -s
+	@rm -f $(NAME)
 
-re:
-	@$(MAKE) fclean
-	@$(MAKE) all
+re: clean all
 
+remake: fclean all
 
+.PHONY: all clean fclean re
